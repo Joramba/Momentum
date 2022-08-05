@@ -1,7 +1,7 @@
 'use strict'
 
 function getRandomNum() {
-    return Math.floor(Math.random() * (20 - 1 + 1)) + 0; //Максимум и минимум включаются
+    return Math.floor(Math.random() * (20 - 1 + 1)) + 0;
 }
 
 

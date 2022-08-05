@@ -2,6 +2,7 @@ import { showTime, getRandomNum, setBg, getTimeOfDay } from '../js/time.js';
 import { setLocalStorage, getLocalStorage } from '../js/localStorage.js';
 import { getSlideNext, getSlidePrev } from '../js/slider.js';
 import { getWeather } from "../js/weather.js"
+import { getQuotes } from './quotes.js';
 
 const date = new Date();
 const city = document.querySelector('.city');
@@ -32,5 +33,6 @@ city.addEventListener('change', () => {
     getWeather(city.value)
 });
 
+getQuotes();
 
 
