@@ -21,6 +21,10 @@ body {
   transition: background-image 1s ease-in-out;
 }
 
+span {
+  margin-bottom: 10px;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -143,6 +147,7 @@ body {
 
 .weather-icon {
   font-size: 44px;
+  margin-bottom: 10px;
 }
 
 .city {
@@ -156,6 +161,7 @@ body {
   outline: 0;
   border-bottom: 1px solid #fff;
   background-color: transparent;
+  margin-bottom: 2px;
 }
 
 .city::placeholder {  
