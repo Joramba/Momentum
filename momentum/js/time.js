@@ -55,7 +55,7 @@ function showTime() {
 function setBg(timeOfDay, bgNum) {
     const img = new Image();
     console.log(img);
-    img.src = "../assets/img/bg.jpg"
+    img.src = "/assets/img/bg.jpg"
 
     bgNum = String(bgNum).padStart(2, "0");
 
