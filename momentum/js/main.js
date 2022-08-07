@@ -17,8 +17,6 @@ let randomNum = getRandomNum();
 showTime();
 setBg(getTimeOfDay(date.getHours()), randomNum)
 
-name.addEventListener('change', setLocalStorage);
-window.addEventListener('load', getLocalStorage(name));
 
 slideNext.addEventListener('click', () => {
     randomNum = getSlideNext(randomNum);
@@ -33,14 +31,26 @@ slidePrev.addEventListener('click', () => {
 
 
 city.value = "Minsk";
-getWeather(city.value);
+
+if (localStorage.getItem("city") === null) {
+    localStorage.setItem("city", "Minsk");
+} else[
+    city.value = localStorage.getItem("city")
+]
+
+getWeather(localStorage.getItem("city"));
+
+
+name.addEventListener('change', setLocalStorage);
+window.addEventListener('load', getLocalStorage(name));
 
 city.addEventListener('change', () => {
     getWeather(city.value);
 });
 
 
-
 getQuotes();
+
+
 
 

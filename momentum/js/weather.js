@@ -21,6 +21,7 @@ export async function getWeather(city) {
         error.textContent = `Error! City not found for: ${city}!`
     }
     else {
+        localStorage.setItem("city", city)
         error.textContent = '';
         weatherIcon.className = 'weather-icon owf';
         weatherIcon.classList.add(`owf-${data.weather[0].id}`);
