@@ -21,10 +21,6 @@ body {
   transition: background-image 1s ease-in-out;
 }
 
-span {
-  margin-bottom: 10px;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -147,7 +143,6 @@ span {
 
 .weather-icon {
   font-size: 44px;
-  margin-bottom: 10px;
 }
 
 .city {

@@ -1,7 +1,7 @@
 'use strict'
 
 function getRandomNum() {
-    return Math.floor(Math.random() * (20 - 1 + 1)) + 0;
+    return Math.floor(Math.random() * (20 - 1 + 1)) + 1;
 }
 
 
@@ -9,13 +9,13 @@ function getTimeOfDay(hours) {
     if (hours >= 0 && hours <= 3) {
         return 'night'
     }
-    else if (hours >= 4 && hours <= 15) {
+    else if (hours >= 4 && hours <= 11) {
         return 'morning'
     }
-    // else if (hours >= 12 && hours <= 16) {
-    //     return 'day'
-    // }
-    else if (hours >= 16 && hours <= 23) {
+    else if (hours >= 12 && hours <= 16) {
+        return 'afternoon'
+    }
+    else if (hours >= 17 && hours <= 23) {
         return 'evening'
     }
 }
