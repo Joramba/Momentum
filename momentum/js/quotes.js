@@ -8,7 +8,9 @@ async function getQuotes() {
     const data = await res.json();
 
 
-    localStorage.setItem('i', 0);
+    if (localStorage.getItem('i') === null) {
+        localStorage.setItem('i', 0);
+    }
 
     let i = localStorage.getItem('i');
 
