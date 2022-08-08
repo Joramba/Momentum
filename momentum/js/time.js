@@ -23,6 +23,8 @@ function getTimeOfDay(hours = date.getHours()) {
 
 
 function showTime() {
+    const date = new Date();
+
     const time = document.querySelector('.time'),
         dates = document.querySelector('.date'),
         currentTime = date.toLocaleTimeString();
@@ -43,7 +45,7 @@ function showTime() {
 
         greeting.textContent = greetingText;
     }
-
+    
     greeting();
     setTimeout(showTime, 1000);
 }

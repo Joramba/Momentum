@@ -3,15 +3,12 @@ import { setCity, getWeather } from "../js/weather.js";
 import { greeting } from './greeting.js';
 import { getSlideNext, getSlidePrev } from '../js/slider.js';
 import { getQuotes } from './quotes.js';
-import { createLi, playAudio, toggleBtn } from '../js/player.js'
+import { createLi } from '../js/player.js'
 
 const slideNext = document.querySelector('.slide-next'),
     slidePrev = document.querySelector('.slide-prev');
-const playButton = document.querySelector('.play');
 
-
-let randomNum = getRandomNum(),
-    isPlay = false;
+let randomNum = getRandomNum();
 
 showTime();
 greeting();
@@ -29,12 +26,6 @@ slideNext.addEventListener('click', () => {
 slidePrev.addEventListener('click', () => {
     randomNum = getSlidePrev(randomNum);
     setBg(randomNum);
-});
-
-playButton.addEventListener('click', () => {
-    toggleBtn();
-    playAudio(isPlay);
-    isPlay = !isPlay;
 });
 
 
