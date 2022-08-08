@@ -1,4 +1,20 @@
-export async function getWeather(city) {
+function setCity(town) {
+    const city = document.querySelector(town);
+
+    city.value = "Minsk";
+
+    if (localStorage.getItem("city") === null) {
+        localStorage.setItem("city", "Minsk");
+    } else {
+        city.value = localStorage.getItem("city")
+    }
+
+    city.addEventListener('change', () => {
+        getWeather(city.value);
+    });
+}
+
+async function getWeather(city = localStorage.getItem("city")) {
     const weatherIcon = document.getElementById('weather-icon');
     const temperature = document.querySelector('.temperature');
     const weatherDescription = document.querySelector('.weather-description');
@@ -32,3 +48,5 @@ export async function getWeather(city) {
     }
 }
 
+
+export { setCity, getWeather }

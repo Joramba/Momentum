@@ -1,11 +1,12 @@
-'use strict'
+const date = new Date();
+const img = new Image();
 
 function getRandomNum() {
     return Math.floor(Math.random() * (20 - 1 + 1)) + 1;
 }
 
 
-function getTimeOfDay(hours) {
+function getTimeOfDay(hours = date.getHours()) {
     if (hours >= 0 && hours <= 3) {
         return 'night'
     }
@@ -20,12 +21,12 @@ function getTimeOfDay(hours) {
     }
 }
 
-function showTime() {
-    const time = document.querySelector('.time');
-    const dates = document.querySelector('.date');
 
-    const date = new Date();
-    const currentTime = date.toLocaleTimeString();
+function showTime() {
+    const time = document.querySelector('.time'),
+        dates = document.querySelector('.date'),
+        currentTime = date.toLocaleTimeString();
+
     time.textContent = currentTime;
 
     const options = { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' };
@@ -37,8 +38,6 @@ function showTime() {
 
         const date = new Date();
         const hours = date.getHours();
-
-
         const timeOfDay = getTimeOfDay(hours);
         const greetingText = `Good ${timeOfDay}`;
 
@@ -46,16 +45,13 @@ function showTime() {
     }
 
     greeting();
-
     setTimeout(showTime, 1000);
 }
 
 
-const img = new Image();
-
-function setBg(timeOfDay, bgNum) {
+function setBg(bgNum) {
+    const timeOfDay = getTimeOfDay(date.getHours());
     img.src = "../assets/img/bg.jpg"
-
     bgNum = String(bgNum).padStart(2, "0");
 
     img.addEventListener('load', () => {

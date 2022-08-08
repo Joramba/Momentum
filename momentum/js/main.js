@@ -1,55 +1,45 @@
 import { showTime, getRandomNum, setBg, getTimeOfDay } from '../js/time.js';
-import { setLocalStorage, getLocalStorage } from '../js/localStorage.js';
+import { setCity, getWeather } from "../js/weather.js";
+import { greeting } from './greeting.js';
 import { getSlideNext, getSlidePrev } from '../js/slider.js';
-import { getWeather } from "../js/weather.js"
 import { getQuotes } from './quotes.js';
+import { createLi, playAudio, toggleBtn } from '../js/player.js'
 
-const date = new Date();
-
-const city = document.querySelector('.city'),
-    name = document.querySelector('.name'),
-    slideNext = document.querySelector('.slide-next'),
+const slideNext = document.querySelector('.slide-next'),
     slidePrev = document.querySelector('.slide-prev');
+const playButton = document.querySelector('.play');
 
 
-let randomNum = getRandomNum();
+let randomNum = getRandomNum(),
+    isPlay = false;
 
 showTime();
-setBg(getTimeOfDay(date.getHours()), randomNum)
-
+greeting();
+setBg(randomNum);
+setCity('.city');
+getQuotes();
+createLi();
+getWeather();
 
 slideNext.addEventListener('click', () => {
     randomNum = getSlideNext(randomNum);
-    setBg(getTimeOfDay(date.getHours()), randomNum)
+    setBg(randomNum);
 });
 
 slidePrev.addEventListener('click', () => {
     randomNum = getSlidePrev(randomNum);
-    setBg(getTimeOfDay(date.getHours()), randomNum)
+    setBg(randomNum);
+});
+
+playButton.addEventListener('click', () => {
+    toggleBtn();
+    playAudio(isPlay);
+    isPlay = !isPlay;
 });
 
 
 
-city.value = "Minsk";
 
-if (localStorage.getItem("city") === null) {
-    localStorage.setItem("city", "Minsk");
-} else[
-    city.value = localStorage.getItem("city")
-]
-
-getWeather(localStorage.getItem("city"));
-
-
-name.addEventListener('change', setLocalStorage);
-window.addEventListener('load', getLocalStorage(name));
-
-city.addEventListener('change', () => {
-    getWeather(city.value);
-});
-
-
-getQuotes();
 
 
 
