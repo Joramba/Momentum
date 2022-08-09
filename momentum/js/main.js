@@ -10,13 +10,22 @@ const slideNext = document.querySelector('.slide-next'),
 
 let randomNum = getRandomNum();
 
+createLi();
 showTime();
 greeting();
 setBg(randomNum);
 setCity('.city');
 getQuotes();
-createLi();
 getWeather();
+
+
+const playItems = document.querySelectorAll('.play-item');
+
+playItems.forEach(element => {
+    element.addEventListener('click', () => {
+        console.log("111");
+    });
+});
 
 slideNext.addEventListener('click', () => {
     randomNum = getSlideNext(randomNum);
@@ -27,6 +36,9 @@ slidePrev.addEventListener('click', () => {
     randomNum = getSlidePrev(randomNum);
     setBg(randomNum);
 });
+
+
+
 
 
 
