@@ -5,6 +5,7 @@ const audio = new Audio();
 const playButton = document.querySelector('.play'),
     playNext = document.querySelector('.play-next'),
     playPrev = document.querySelector('.play-prev'),
+    volume = document.querySelector('.volume'),
     playerLength = playList.length;
 
 
@@ -95,5 +96,11 @@ playPrev.addEventListener('click', () => {
 
 });
 
+volume.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    
+    volume.classList.toggle('icono-volumeMedium');
+    volume.classList.toggle('icono-volumeMute');
+});
 
 export { createLi, playAudio, toggleBtn }

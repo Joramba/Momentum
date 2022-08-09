@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="assets/favicon.ico" rel="shortcut icon" />
   <link rel="stylesheet" href="css/owfont-regular.css" />
+  <link rel="stylesheet" href="css/icono.min.css">
   <link rel="stylesheet" href="css/style.css" />
   <title>momentum</title>
 </head>
@@ -13,16 +14,32 @@
 <body>
   <header class="header">
     <div class="player">
-      <div class="player-controls">
-        <button class="play-prev player-icon"></button>
-        <button class="play player-icon"></button>
-        <button class="play-next player-icon"></button>
+      <div class="audio-player">
+        <div class="player-controls">
+          <button class="play-prev player-icon"></button>
+          <button class="play player-icon"></button>
+          <button class="play-next player-icon"></button>
+        </div>
+
+        <div class="timeline">
+          <div class="progress"></div>
+        </div>
+
+        <div class="volume-container">
+          <div class="volume-button ">
+            <div class="volume icono-volumeMedium"></div>
+          </div>
+          <div class="volume-slider">
+            <div class="volume-percentage"></div>
+          </div>
+        </div>
       </div>
+
       <ul class="play-list"></ul>
     </div>
     <div class="weather">
       <input type="text" class="city" />
-      <i id="weather-icon"class="weather-icon owf"></i>
+      <i id="weather-icon" class="weather-icon owf"></i>
       <div class="weather-error"></div>
       <div class="description-container">
         <span class="temperature"></span>
