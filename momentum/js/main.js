@@ -4,19 +4,24 @@ import { greeting } from './greeting.js';
 import { getSlideNext, getSlidePrev } from '../js/slider.js';
 import { getQuotes } from './quotes.js';
 import { createLi } from '../js/player.js'
+import { setLanguage } from './setLanguage.js';
 
 const slideNext = document.querySelector('.slide-next'),
-    slidePrev = document.querySelector('.slide-prev');
+    slidePrev = document.querySelector('.slide-prev'),
+    city = localStorage.getItem("city");
 
-let randomNum = getRandomNum();
+let randomNum = getRandomNum(),
+    language = 'en';
 
+
+setLanguage(language);
 createLi();
 showTime();
 greeting();
 setBg(randomNum);
-setCity('.city');
+setCity('.city', language);
 getQuotes();
-getWeather();
+getWeather(city, language);
 
 
 const playItems = document.querySelectorAll('.play-item');
@@ -36,6 +41,7 @@ slidePrev.addEventListener('click', () => {
     randomNum = getSlidePrev(randomNum);
     setBg(randomNum);
 });
+
 
 
 

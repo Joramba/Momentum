@@ -1,5 +1,34 @@
+const greetingTranslation = {
+    'ru': {
+        'night': 'Доброй Ночи',
+        'morning': 'Доброе утро',
+        'afternoon': 'Добрый день',
+        'evening': 'Добрый Вечер',
+    },
+    'en': {
+        'night': 'Good night',
+        'morning': 'Good morning',
+        'afternoon': 'Good afternoon',
+        'evening': 'Good evening',
+    },
+    'pl': {
+        'night': 'Dobranoc',
+        'morning': 'Dzień dobry',
+        'afternoon': 'Dzień dobry',
+        'evening': 'Dobry wieczór',
+    },
+    'de': {
+        'night': 'Gute Nacht',
+        'morning': 'Guten Morgen',
+        'afternoon': 'Guten Tag',
+        'evening': 'Guten Abend',
+    }
+}
+
+
 const date = new Date();
 const img = new Image();
+const language = localStorage.getItem('language');
 
 function getRandomNum() {
     return Math.floor(Math.random() * (20 - 1 + 1)) + 1;
@@ -22,6 +51,7 @@ function getTimeOfDay(hours = date.getHours()) {
 }
 
 
+
 function showTime() {
     const date = new Date();
 
@@ -32,21 +62,18 @@ function showTime() {
     time.textContent = currentTime;
 
     const options = { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' };
-    const currentDate = date.toLocaleDateString('en-US', options);
+    const currentDate = date.toLocaleDateString(language, options);
     dates.textContent = currentDate;
 
-    function greeting() {
+    function greeting(language) {
         const greeting = document.querySelector('.greeting')
-
         const date = new Date();
         const hours = date.getHours();
         const timeOfDay = getTimeOfDay(hours);
-        const greetingText = `Good ${timeOfDay}`;
-
-        greeting.textContent = greetingText;
+        greeting.textContent = `${greetingTranslation[language][timeOfDay]}`;
     }
-    
-    greeting();
+
+    greeting(language);
     setTimeout(showTime, 1000);
 }
 

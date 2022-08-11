@@ -1,4 +1,4 @@
-function setCity(town) {
+function setCity(town, language) {
     const city = document.querySelector(town);
 
     city.value = "Minsk";
@@ -10,11 +10,12 @@ function setCity(town) {
     }
 
     city.addEventListener('change', () => {
-        getWeather(city.value);
+        getWeather(city.value, language);
     });
 }
 
-async function getWeather(city = localStorage.getItem("city")) {
+
+async function getWeather(city = localStorage.getItem("city"), language) {
     const weatherIcon = document.getElementById('weather-icon');
     const temperature = document.querySelector('.temperature');
     const weatherDescription = document.querySelector('.weather-description');
@@ -22,10 +23,10 @@ async function getWeather(city = localStorage.getItem("city")) {
     const humidity = document.querySelector('.humidity');
     const error = document.querySelector('.weather-error');
 
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=en&appid=310b0426dbd61afe75ddbae335355f13&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${language}&appid=310b0426dbd61afe75ddbae335355f13&units=metric`;
     const res = await fetch(url);
-
     const data = await res.json();
+
 
 
     if (res.ok === false) {
