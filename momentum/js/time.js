@@ -1,34 +1,8 @@
-const greetingTranslation = {
-    'ru': {
-        'night': 'Доброй Ночи',
-        'morning': 'Доброе утро',
-        'afternoon': 'Добрый день',
-        'evening': 'Добрый Вечер',
-    },
-    'en': {
-        'night': 'Good night',
-        'morning': 'Good morning',
-        'afternoon': 'Good afternoon',
-        'evening': 'Good evening',
-    },
-    'pl': {
-        'night': 'Dobranoc',
-        'morning': 'Dzień dobry',
-        'afternoon': 'Dzień dobry',
-        'evening': 'Dobry wieczór',
-    },
-    'de': {
-        'night': 'Gute Nacht',
-        'morning': 'Guten Morgen',
-        'afternoon': 'Guten Tag',
-        'evening': 'Guten Abend',
-    }
-}
-
+import { translator } from "../js/translator.js";
 
 const date = new Date();
 const img = new Image();
-const language = localStorage.getItem('language');
+
 
 function getRandomNum() {
     return Math.floor(Math.random() * (20 - 1 + 1)) + 1;
@@ -57,7 +31,8 @@ function showTime() {
 
     const time = document.querySelector('.time'),
         dates = document.querySelector('.date'),
-        currentTime = date.toLocaleTimeString();
+        currentTime = date.toLocaleTimeString(),
+        language = localStorage.getItem('language');
 
     time.textContent = currentTime;
 
@@ -70,7 +45,7 @@ function showTime() {
         const date = new Date();
         const hours = date.getHours();
         const timeOfDay = getTimeOfDay(hours);
-        greeting.textContent = `${greetingTranslation[language][timeOfDay]}`;
+        greeting.textContent = `${translator[language][timeOfDay]}`;
     }
 
     greeting(language);

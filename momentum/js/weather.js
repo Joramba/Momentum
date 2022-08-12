@@ -1,3 +1,5 @@
+import { translator } from "../js/translator.js";
+
 function setCity(town, language) {
     const city = document.querySelector(town);
 
@@ -43,8 +45,8 @@ async function getWeather(city = localStorage.getItem("city"), language) {
         weatherIcon.className = 'weather-icon owf';
         weatherIcon.classList.add(`owf-${data.weather[0].id}`);
         temperature.textContent = `${Math.floor(data.main.temp)}°C`;
-        wind.textContent = `Wind speed: ${Math.floor(data.wind.speed, 2)} m/s`
-        humidity.textContent = `Humidity: ${data.main.humidity}%`
+        wind.textContent = `${translator[language].wind}: ${Math.floor(data.wind.speed, 2)} m/s`
+        humidity.textContent = `${translator[language].humidity}: ${data.main.humidity}%`
         weatherDescription.textContent = data.weather[0].description;
     }
 }

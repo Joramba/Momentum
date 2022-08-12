@@ -1,3 +1,12 @@
+import { translator } from "../js/translator.js";
+
+const name = document.querySelector('.name');
+
+function setPlaceholder(language) {
+    name.placeholder = translator[language].placeholder;
+}
+
+
 function setLocalStorage(e) {
     localStorage.setItem('name', e.target.value);
 }
@@ -9,10 +18,8 @@ function getLocalStorage(name) {
 }
 
 function greeting() {
-    const name = document.querySelector('.name');
-
     name.addEventListener('change', setLocalStorage);
     window.addEventListener('load', getLocalStorage(name));
 }
 
-export { greeting, setLocalStorage, getLocalStorage };
+export { greeting, setLocalStorage, getLocalStorage, setPlaceholder };

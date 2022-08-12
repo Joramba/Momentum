@@ -1,4 +1,4 @@
-async function getQuotes() {
+async function getQuotes(language) {
     const quote = document.querySelector('.quote'),
         author = document.querySelector('.author'),
         quoteButton = document.querySelector('.change-quote');
@@ -13,14 +13,15 @@ async function getQuotes() {
     }
 
     let i = localStorage.getItem('i');
-
-    quote.textContent = data[i].quote;
-    author.textContent = data[i].author;
+    
+    quote.textContent = data[0][language][i].quote;
+    author.textContent = data[0][language][i].author;
 
     quoteButton.addEventListener('click', () => {
-        i = Math.floor(Math.random() * (100 - 0 + 1)) + 0;;
-        quote.textContent = data[i].quote;
-        author.textContent = data[i].author;
+        i = Math.floor(Math.random() * (data[0][language].length - 0 + 1)) + 0;
+
+        quote.textContent = data[0][language][i].quote;
+        author.textContent = data[0][language][i].author;
         localStorage.setItem('i', i);
     })
 
