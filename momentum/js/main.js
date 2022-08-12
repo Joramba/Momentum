@@ -9,8 +9,7 @@ import { settings } from './settings.js';
 
 const slideNext = document.querySelector('.slide-next'),
     slidePrev = document.querySelector('.slide-prev'),
-    city = localStorage.getItem("city"),
-    settingsLanguages = document.querySelector('.select-languages');
+    city = localStorage.getItem("city");
 
 let randomNum = getRandomNum(),
     language = localStorage.getItem('language');
@@ -43,22 +42,5 @@ slidePrev.addEventListener('click', () => {
     randomNum = getSlidePrev(randomNum);
     setBg(randomNum);
 });
-
-
-settingsLanguages.addEventListener('change', () => {
-    language = settingsLanguages.options[settingsLanguages.selectedIndex].value;
-    setLanguage(language);
-    document.location.reload();
-    console.log(language);
-});
-
-
-
-
-
-
-
-
-
 
 
