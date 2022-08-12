@@ -4,8 +4,8 @@ const date = new Date();
 const img = new Image();
 
 
-function getRandomNum() {
-    return Math.floor(Math.random() * (20 - 1 + 1)) + 1;
+function getRandomNum(max) {
+    return Math.floor(Math.random() * (max - 1 + 1)) + 1;
 }
 
 
@@ -53,14 +53,16 @@ function showTime() {
 }
 
 async function getLinkToimage() {
-    const url = 'https://api.unsplash.com/photos/random?orientation=landscape&query=nature&client_id=CNocQJjf9gCD2jrKOy3lDNgWT03jZ9tEtOwL20yLv3g';
+    //const url = 'https://api.unsplash.com/photos/random?orientation=landscape&query=nature&client_id=CNocQJjf9gCD2jrKOy3lDNgWT03jZ9tEtOwL20yLv3g'; // Unsplash API
+
+    const url = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=2f1a017239fcbc3e76f6011be95b7bcb&tags=nature&extras=url_l&format=json&nojsoncallback=1';  // Flickr API
     const res = await fetch(url);
     const data = await res.json();
 
-    img.src = "../assets/img/bg.jpg"
+    img.src = data.photos.photo[getRandomNum(100)].url_l;
 
     img.addEventListener('load', () => {
-        document.body.style.backgroundImage = `url('${data.urls.regular}')`;
+        document.body.style.backgroundImage = `url('${data.photos.photo[getRandomNum(100)].url_l}')`;
     });
 }
 

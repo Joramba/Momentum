@@ -29,8 +29,6 @@ async function getWeather(city = localStorage.getItem("city"), language) {
     const res = await fetch(url);
     const data = await res.json();
 
-
-
     if (res.ok === false) {
         weatherIcon.className = '';
         wind.textContent = '';

@@ -3,9 +3,7 @@ const settings = document.querySelector('.settings-button'),
     settingsLanguages = document.querySelector('.select-languages');
 
 settingsLanguages[localStorage.getItem('index')].selected = true;
-settings.addEventListener('click', () => {
-    slider.classList.toggle('open');
-});
+
 
 function setLanguage(language) {
     if (language === undefined) {
@@ -15,6 +13,10 @@ function setLanguage(language) {
         localStorage.setItem('language', language);
     }
 }
+
+settings.addEventListener('click', () => {
+    slider.classList.toggle('open');
+});
 
 settingsLanguages.addEventListener('change', () => {
     let language = settingsLanguages.options[settingsLanguages.selectedIndex].value;
