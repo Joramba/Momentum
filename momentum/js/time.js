@@ -52,18 +52,18 @@ function showTime() {
     setTimeout(showTime, 1000);
 }
 
+async function getLinkToimage() {
+    const url = 'https://api.unsplash.com/photos/random?orientation=landscape&query=nature&client_id=CNocQJjf9gCD2jrKOy3lDNgWT03jZ9tEtOwL20yLv3g';
+    const res = await fetch(url);
+    const data = await res.json();
 
-function setBg(bgNum) {
-    const timeOfDay = getTimeOfDay(date.getHours());
     img.src = "../assets/img/bg.jpg"
-    bgNum = String(bgNum).padStart(2, "0");
 
     img.addEventListener('load', () => {
-        document.body.style.backgroundImage = `url('https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg')`;
-    })
+        document.body.style.backgroundImage = `url('${data.urls.regular}')`;
+    });
 }
 
-
-export { showTime, getRandomNum, setBg, getTimeOfDay };
+export { showTime, getRandomNum, getTimeOfDay, getLinkToimage };
 
 

@@ -21,8 +21,6 @@ settingsLanguages.addEventListener('change', () => {
     setLanguage(language);
 
     for (let i = 0; i < settingsLanguages.length; i++) {
-        console.log(settingsLanguages[i].value);
-        console.log(localStorage.getItem('language'));
         if (settingsLanguages[i].value == localStorage.getItem('language')) {
             localStorage.setItem('index', i);
             language = settingsLanguages[i].value;

@@ -1,4 +1,4 @@
-import { showTime, getRandomNum, setBg } from '../js/time.js';
+import { showTime, getRandomNum, getLinkToimage } from '../js/time.js';
 import { setCity, getWeather } from "../js/weather.js";
 import { greeting, setPlaceholder } from './greeting.js';
 import { getSlideNext, getSlidePrev } from '../js/slider.js';
@@ -19,7 +19,8 @@ createLi();
 showTime();
 setPlaceholder(language);
 greeting();
-setBg(randomNum);
+// setBg(randomNum);
+getLinkToimage();
 setCity('.city', language);
 getQuotes(language);
 getWeather(city, language);
@@ -34,13 +35,11 @@ playItems.forEach(element => {
 });
 
 slideNext.addEventListener('click', () => {
-    randomNum = getSlideNext(randomNum);
-    setBg(randomNum);
+    getLinkToimage();
 });
 
 slidePrev.addEventListener('click', () => {
-    randomNum = getSlidePrev(randomNum);
-    setBg(randomNum);
+    getLinkToimage();
 });
 
 
