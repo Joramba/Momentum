@@ -6,7 +6,6 @@ function setPlaceholder(language) {
     name.placeholder = translator[language].placeholder;
 }
 
-
 function setLocalStorage(e) {
     localStorage.setItem('name', e.target.value);
 }

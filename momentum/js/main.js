@@ -3,16 +3,27 @@ import { setCity, getWeather } from "../js/weather.js";
 import { greeting, setPlaceholder } from './greeting.js';
 import { getQuotes } from './quotes.js';
 import { createLi } from '../js/player.js'
-import { setLanguage } from './setLanguage.js';
 import { settings } from './settings.js';
 
 const slideNext = document.querySelector('.slide-next'),
-    slidePrev = document.querySelector('.slide-prev'),
+    slidePrev = document.querySelector('.slide-prev');
+
+
+
+let language = localStorage.getItem('language'),
     city = localStorage.getItem("city");
 
-let language = localStorage.getItem('language');
+if (localStorage.getItem('language') == null) {
+    localStorage.setItem('language', 'en');
+    language = 'en';
+}
 
-setLanguage(language);
+if (localStorage.getItem('city') == null) {
+    localStorage.setItem('city', 'Minsk');
+    city = 'Minsk';
+}
+
+
 createLi();
 showTime();
 setPlaceholder(language);
