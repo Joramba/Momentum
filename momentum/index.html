@@ -85,9 +85,24 @@
       </div>
     </div>
     <div class="to-do-list">
+            <div class="to-do-list-wrapper">
+        <ul class="task-box"></ul>
+        <div class="controls">
+          <div class="filters">
+            <span class="active" id="all">All</span>
+            <span id="pending">Pending</span>
+            <span id="completed">Completed</span>
+          </div>
+          <button class="clear-btn">Clear All</button>
+        </div>
+        <div class="task-input">
+          <input type="text" placeholder="Add a new task">
+        </div>
+      </div>
       <div class="to-do-list-button">
         <div class="to-do-list-menu icono-outdent"></div>
       </div>
+
     </div>
   </footer>
   <script type="module" src="js/main.js"></script>
