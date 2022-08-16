@@ -7,6 +7,7 @@
   <link href="assets/favicon.ico" rel="shortcut icon" />
   <link rel="stylesheet" href="css/owfont-regular.css" />
   <link rel="stylesheet" href="css/icono.min.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <link rel="stylesheet" href="css/style.css" />
   <title>momentum</title>
 </head>
@@ -85,24 +86,20 @@
       </div>
     </div>
     <div class="to-do-list">
-            <div class="to-do-list-wrapper">
-        <ul class="task-box"></ul>
-        <div class="controls">
-          <div class="filters">
-            <span class="active" id="all">All</span>
-            <span id="pending">Pending</span>
-            <span id="completed">Completed</span>
-          </div>
-          <button class="clear-btn">Clear All</button>
-        </div>
-        <div class="task-input">
-          <input type="text" placeholder="Add a new task">
+      <div class="to-do-list-wrapper">
+        <ul id="myUL">
+          <li class="item">Hit the gym</li>
+          <li class="checked item">Pay bills</li>
+          <li class="item">Meet George</li>
+        </ul>
+        <div id="myDIV" class="to-do-list-header">
+          <input type="text" id="myInput" placeholder="Title...">
+          <span class="addBtn">Add</span>
         </div>
       </div>
       <div class="to-do-list-button">
         <div class="to-do-list-menu icono-outdent"></div>
       </div>
-
     </div>
   </footer>
   <script type="module" src="js/main.js"></script>

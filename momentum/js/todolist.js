@@ -1,116 +1,69 @@
 function todolist() {
-    const taskInput = document.querySelector(".task-input input"),
-        filters = document.querySelectorAll(".filters span"),
-        clearAll = document.querySelector(".clear-btn"),
-        taskBox = document.querySelector(".task-box");
-    let editId,
-        isEditTask = false,
-        todos = JSON.parse(localStorage.getItem("todo-list"));
+    const myNodelist = document.querySelectorAll(".item");
+    const taskBox = document.querySelector("#myUL");
 
-    filters.forEach(btn => {
-        btn.addEventListener("click", () => {
-            document.querySelector("span.active").classList.remove("active");
-            btn.classList.add("active");
-            showTodo(btn.id);
-        });
-    });
+    for (let i = 0; i < myNodelist.length; i++) {
+        const span = document.createElement("SPAN");
+        const txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        myNodelist[i].appendChild(span);
+    }
 
-    function showTodo(filter) {
-        let liTag = "";
-        if (todos) {
-            todos.forEach((todo, id) => {
-                let completed = todo.status == "completed" ? "checked" : "";
-                if (filter == todo.status || filter == "all") {
-                    liTag += `<li class="task">
-                                <label for="${id}">
-                                    <input onclick="updateStatus(this)" type="checkbox" id="${id}" ${completed}>
-                                    <p class="${completed}">${todo.name}</p>
-                                </label>
-                                <div class="settings">
-                                    <i onclick="showMenu(this)" class="uil uil-ellipsis-h"></i>
-                                    <ul class="task-menu">
-                                        <li onclick='editTask(${id}, "${todo.name}")'><i class="uil uil-pen"></i>Edit</li>
-                                        <li onclick='deleteTask(${id}, "${filter}")'><i class="uil uil-trash"></i>Delete</li>
-                                    </ul>
-                                </div>
-                            </li>`;
-                }
-            });
+    const close = document.getElementsByClassName("close");
+
+    for (let i = 0; i < close.length; i++) {
+        close[i].onclick = function () {
+            taskBox.offsetHeight >= 250 ? taskBox.classList.add("overflow") : taskBox.classList.remove("overflow");
+            this.parentElement.remove();
         }
-        taskBox.innerHTML = liTag || `<span>You don't have any task here</span>`;
-        let checkTask = taskBox.querySelectorAll(".task");
-        !checkTask.length ? clearAll.classList.remove("active") : clearAll.classList.add("active");
-        console.log(taskBox.offsetHeight)
-        taskBox.offsetHeight >= 250 ? taskBox.classList.add("overflow") : taskBox.classList.remove("overflow");
     }
 
-    showTodo("all");
-
-    function showMenu(selectedTask) {
-        let menuDiv = selectedTask.parentElement.lastElementChild;
-        menuDiv.classList.add("show");
-        document.addEventListener("click", e => {
-            if (e.target.tagName != "I" || e.target != selectedTask) {
-                menuDiv.classList.remove("show");
-            }
-        });
-    }
-
-    function updateStatus(selectedTask) {
-        let taskName = selectedTask.parentElement.lastElementChild;
-        if (selectedTask.checked) {
-            taskName.classList.add("checked");
-            todos[selectedTask.id].status = "completed";
-        } else {
-            taskName.classList.remove("checked");
-            todos[selectedTask.id].status = "pending";
+    const list = document.querySelector('#myUL');
+    list.addEventListener('click', function (ev) {
+        if (ev.target.tagName === 'LI') {
+            ev.target.classList.toggle('checked');
         }
-        localStorage.setItem("todo-list", JSON.stringify(todos))
-    }
-    function editTask(taskId, textName) {
-        editId = taskId;
-        isEditTask = true;
-        taskInput.value = textName;
-        taskInput.focus();
-        taskInput.classList.add("active");
-    }
-    function deleteTask(deleteId, filter) {
-        isEditTask = false;
-        todos.splice(deleteId, 1);
-        localStorage.setItem("todo-list", JSON.stringify(todos));
-        showTodo(filter);
-    }
+    }, false);
 
-    clearAll.addEventListener("click", () => {
-        isEditTask = false;
-        todos.splice(0, todos.length);
-        localStorage.setItem("todo-list", JSON.stringify(todos));
-        showTodo()
-    });
-
-    taskInput.addEventListener("keyup", e => {
-        let userTask = taskInput.value.trim();
-        if (e.key == "Enter" && userTask) {
-            if (!isEditTask) {
-                todos = !todos ? [] : todos;
-                let taskInfo = { name: userTask, status: "pending" };
-                todos.push(taskInfo);
-            } else {
-                isEditTask = false;
-                todos[editId].name = userTask;
-            }
-            taskInput.value = "";
-            localStorage.setItem("todo-list", JSON.stringify(todos));
-            showTodo(document.querySelector("span.active").id);
-        }
-    });
+    taskBox.offsetHeight >= 250 ? taskBox.classList.add("overflow") : taskBox.classList.remove("overflow");
 }
+
+
+function newElement() {
+    const li = document.createElement("li");
+    li.className = 'item';
+    const inputValue = document.getElementById("myInput").value;
+    const t = document.createTextNode(inputValue);
+    li.appendChild(t);
+
+    if (inputValue === '') {
+        alert("You must write something!");
+    } else {
+        document.getElementById("myUL").appendChild(li);
+    }
+    
+    document.getElementById("myInput").value = "";
+
+    const span = document.createElement("SPAN");
+    const txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    li.appendChild(span);
+}
+
 
 const toDoList = document.querySelector('.to-do-list-button');
 const wrapper = document.querySelector('.to-do-list-wrapper');
+const button = document.querySelector('.addBtn');
 
 toDoList.addEventListener('click', () => {
     wrapper.classList.toggle('open-todo');
+});
+
+button.addEventListener('click', () => {
+    newElement();
+    todolist();
 });
 
 
