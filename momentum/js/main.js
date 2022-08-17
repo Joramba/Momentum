@@ -36,14 +36,6 @@ getWeather(city, language);
 todolist();
 
 
-const playItems = document.querySelectorAll('.play-item');
-
-playItems.forEach(element => {
-    element.addEventListener('click', () => {
-        console.log("111");
-    });
-});
-
 slideNext.addEventListener('click', () => {
     getLinkToimage(getRandomNum(100));
 });

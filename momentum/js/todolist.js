@@ -1,6 +1,6 @@
 function todolist() {
     const myNodelist = document.querySelectorAll(".item");
-    const taskBox = document.querySelector("#myUL");
+    const taskBox = document.querySelector("#todolist-ul");
 
     for (let i = 0; i < myNodelist.length; i++) {
         const span = document.createElement("SPAN");
@@ -19,7 +19,7 @@ function todolist() {
         }
     }
 
-    const list = document.querySelector('#myUL');
+    const list = document.querySelector('#todolist-ul');
     list.addEventListener('click', function (ev) {
         if (ev.target.tagName === 'LI') {
             ev.target.classList.toggle('checked');
@@ -33,17 +33,17 @@ function todolist() {
 function newElement() {
     const li = document.createElement("li");
     li.className = 'item';
-    const inputValue = document.getElementById("myInput").value;
+    const inputValue = document.getElementById("todolist-input").value;
     const t = document.createTextNode(inputValue);
     li.appendChild(t);
 
     if (inputValue === '') {
         alert("You must write something!");
     } else {
-        document.getElementById("myUL").appendChild(li);
+        document.getElementById("todolist-ul").appendChild(li);
     }
     
-    document.getElementById("myInput").value = "";
+    document.getElementById("todolist-input").value = "";
 
     const span = document.createElement("SPAN");
     const txt = document.createTextNode("\u00D7");

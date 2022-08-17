@@ -11,7 +11,6 @@ const playButton = document.querySelector('.play'),
     volumePercentage = document.querySelector(".volume-percentage"),
     progressBar = document.querySelector(".progress"),
     timeline = document.querySelector(".timeline"),
-    // playItems = document.querySelector('.play-item'),
     playerLength = playList.length;
 
 
