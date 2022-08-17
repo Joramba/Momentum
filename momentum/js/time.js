@@ -63,7 +63,6 @@ async function getLinkToimage() {
 
     img.addEventListener('load', () => {
         document.body.style.backgroundImage = `url('${data.photos.photo[getRandomNum(100)].url_l}')`;
-        document.body.style.backgroundSize = 'cover';
     });
 }
 
