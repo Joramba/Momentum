@@ -3,7 +3,7 @@ import { setCity, getWeather } from "../js/weather.js";
 import { greeting, setPlaceholder } from './greeting.js';
 import { getQuotes } from './quotes.js';
 import { createLi } from '../js/player.js'
-import { settings } from './settings.js';
+import { settings, setSettings } from './settings.js';
 import { todolist } from './todolist.js';
 
 const slideNext = document.querySelector('.slide-next'),
@@ -33,6 +33,7 @@ getLinkToimage();
 setCity('.city', language);
 getQuotes(language);
 getWeather(city, language);
+setSettings();
 todolist();
 
 

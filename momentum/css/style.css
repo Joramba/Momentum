@@ -45,6 +45,7 @@ input {
 
 .player {
   width: 400px;
+  transition: .25s;
 }
 
 .player-controls {
@@ -208,6 +209,7 @@ input {
   width: 180px;
   min-height: 180px;
   text-align: left;
+  transition: .25s;
 }
 
 .weather-description {
@@ -291,12 +293,14 @@ input {
   font-family: 'Arial-MT';
   font-size: 100px;
   letter-spacing: -4px;
+  transition: .25s;
 }
 
 .date {
   min-height: 28px;
   font-size: 24px;
   margin-bottom: 20px;
+  transition: .25s;
 }
 
 .greeting-container {
@@ -307,12 +311,14 @@ input {
   min-height: 48px;
   width: 100vw;
   font-size: 40px;
+  transition: 0.25s;
 }
 
 .greeting {
   flex: 1;
   padding: 10px;
   text-align: right;
+  transition: .25s;
 }
 
 .name {
@@ -351,6 +357,12 @@ input {
 .settings-title {
   margin-bottom: 5px;
   display: flex;
+}
+
+.hide-element {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.25s;
 }
 
 .settings-item {
@@ -432,7 +444,9 @@ input {
 
 .quete-container {
   margin-left: 20%;
+  transition: .25s;
 }
+
 
 
 .author {
