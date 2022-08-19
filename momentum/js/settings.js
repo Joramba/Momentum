@@ -37,6 +37,17 @@ settingsLanguages.addEventListener('change', () => {
     document.location.reload()
 });
 
+
+const switchTime = document.querySelector('#time');
+const switchDate = document.querySelector('#date');
+const switchGreeting = document.querySelector('#greeting');
+const switchQuote = document.querySelector('#quote');
+const switchWeather = document.querySelector('#weather');
+const switchAudio = document.querySelector('#audio');
+
+console.log(switchDate)
+
+
 export { settings }
 
 
