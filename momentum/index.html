@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="css/owfont-regular.css" />
+  <link rel="stylesheet" href="css/icono.min.css">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <link rel="stylesheet" href="css/style.css" />
+  <title>momentum</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="player">
+      <div class="audio-player">
+        <div class="player-controls">
+          <button class="play-prev player-icon"></button>
+          <button class="play player-icon"></button>
+          <button class="play-next player-icon"></button>
+        </div>
+
+        <div class="timeline">
+          <div class="progress"></div>
+        </div>
+
+        <div class="volume-container">
+          <div class="volume-button">
+            <div class="volume icono-volumeMedium"></div>
+          </div>
+          <div class="volume-slider">
+            <div class="volume-percentage"></div>
+          </div>
+        </div>
+      </div>
+
+      <ul class="play-list"></ul>
+    </div>
+    <div class="weather">
+      <input type="text" class="city" />
+      <i id="weather-icon" class="weather-icon owf"></i>
+      <div class="weather-error"></div>
+      <div class="description-container">
+        <span class="temperature"></span>
+        <span class="weather-description"></span>
+      </div>
+      <div class="wind"></div>
+      <div class="humidity"></div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+    <time class="time"></time>
+    <date class="date"></date>
+    <div class="greeting-container">
+      <span class="greeting"></span>
+      <input type="text" class="name" />
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="settings">
+      <div class="settings-button">
+        <div class="settings-menu icono-sliders"></div>
+      </div>
+      <div class="settings-slider">
+        <div class="settings-languages">
+          1.Choose language:
+          <select class="select-languages">
+            <option value="en">English</option>
+            <option value="ru">Russian</option>
+            <option value="pl">Polish</option>
+          </select>
+        </div>
+        <div class="settings-block">
+          <div class="settings-title">
+            2. Hide elements:
+          </div>
+          <div class="settings-item">
+            <input type="checkbox" id="time" name="time" checked>
+            <div class="settings-name">Time</div>
+          </div>
+          <div class="settings-item">
+            <input type="checkbox" id="date" name="date" checked>
+            <div class="settings-name">Date</div>
+          </div>
+          <div class="settings-item">
+            <input type="checkbox" id="greeting" name="greeting" checked>
+            <div class="settings-name">Greeting</div>
+          </div>
+          <div class="settings-item">
+            <input type="checkbox" id="quote" name="quote" checked>
+            <div class="settings-name">Quote</div>
+          </div>
+          <div class="settings-item">
+            <input type="checkbox" id="weather" name="weather" checked>
+            <div class="settings-name">Weather</div>
+          </div>
+          <div class="settings-item">
+            <input type="checkbox" id="audio" name="audio" checked>
+            <div class="settings-name">Audio</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="quete-container">
+      <button class="change-quote"></button>
+      <div>
+        <div class="quote"></div>
+        <div class="author"></div>
+      </div>
+    </div>
+    <div class="to-do-list">
+      <div class="to-do-list-wrapper">
+        <ul id="todolist-ul">
+          <li class="item">Hit the gym</li>
+          <li class="checked item">Pay bills</li>
+          <li class="item">Meet George</li>
+        </ul>
+        <div id="todolist-div" class="to-do-list-header">
+          <input type="text" id="todolist-input" placeholder="Enter the task">
+          <span class="addBtn">Add</span>
+        </div>
+      </div>
+      <div class="to-do-list-button">
+        <div class="to-do-list-menu icono-outdent"></div>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
