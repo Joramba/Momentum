@@ -4,6 +4,7 @@ function setCity(town, language) {
     const city = document.querySelector(town);
 
     city.value = "Minsk";
+    
 
     if (localStorage.getItem("city") === null) {
         localStorage.setItem("city", "Minsk");
